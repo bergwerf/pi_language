@@ -1,6 +1,7 @@
-! Calculator with unary number input and support for addition and
-! multiplication. The result is cumlative. For example:
-! 110+10*1110+10 --> 11111111110
+! Calculator with decimal number input and support for addition, subtraction,
+! multiplication, division and remainder. Numbers end with an underscore and the
+! result is cumulative (from left to right, on natural numbers). For example:
+! 3_+4_*2_ --> 14_
 
 #attach: lib/nat.pi
 #attach: lib/cell.pi

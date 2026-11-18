@@ -84,12 +84,12 @@ func main() {
 	proc, unparsed := Parse(full, ioChannelOffset, copyStrIntMap(nil), &err)
 	if len(unparsed) > 0 {
 		fmt.Printf("%v tokens were not parsed\n", len(unparsed))
-		return
+		os.Exit(1)
 	} else if len(err) != 0 {
 		for _, e := range err {
 			println(e.Error())
 		}
-		return
+		os.Exit(1)
 	}
 
 	// Write unoptimized core.

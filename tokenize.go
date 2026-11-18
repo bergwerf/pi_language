@@ -26,6 +26,7 @@ func Tokenize(source string, start Loc, relativeLoc bool) []Token {
 	// Read line by line for easier location tracking.
 	for ln, line := range strings.Split(source, "\n") {
 		lineLength := len(line)
+	nextToken:
 		for len(line) > 0 {
 			m1 := whitespaceRE.FindString(line) // Skip whitespace.
 			line = line[len(m1):]
@@ -54,7 +55,7 @@ func Tokenize(source string, start Loc, relativeLoc bool) []Token {
 					result := Tokenize(replace, loc, false)
 					tokens = append(tokens, result...)
 					line = line[len(m3[0]):]
-					continue
+					continue nextToken
 				}
 			}
 

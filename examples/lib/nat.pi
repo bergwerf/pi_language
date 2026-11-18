@@ -36,11 +36,11 @@ c<<5;  +s->c; a<-s;ff->a; a<-s;ff->a;
 c<<6;  +s->c; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a;
   a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;tt->a.
 c<<7;  +s->c; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a;
-  a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;tt->a; a<-s;ff->a.
+  a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;tt->a.
 c<<8;  +s->c; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a;
   a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;tt->a.
 c<<9;  +s->c; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a;
-  a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;tt->a; a<-s;ff->a.
+  a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;tt->a.
 c<<10; +s->c; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a;
   a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;ff->a; a<-s;tt->a.
 

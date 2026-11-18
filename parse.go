@@ -32,18 +32,20 @@ func Parse(tokens []Token, refOffset int, bound map[string]int, err *ErrorList) 
 	for _, trans := range coreSyntax {
 		m := trans.Pattern.FindStringSubmatch(tokens[0].Content)
 		if len(m) > 0 {
-			// Resolve or bind names in pattern.
+			// Resolve names in pattern, then bind, so that a new name does not
+			// shadow the channel it is received on (as in x<-x).
 			v := make([]int, len(m)-1)
 			for i, name := range m[1:] {
 				if trans.BindVar>>i == 0 {
-					// Resolve.
 					vi, vErr := resolveName(name, bound)
 					v[i] = vi
 					if vErr != nil {
 						err.Add(fmt.Errorf("%v; %v; %v", loc, name, vErr))
 					}
-				} else {
-					// Bind.
+				}
+			}
+			for i, name := range m[1:] {
+				if trans.BindVar>>i != 0 {
 					bound[name] = refOffset
 					v[i] = refOffset
 					refOffset++

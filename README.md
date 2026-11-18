@@ -26,7 +26,8 @@ Grammar
 The PI core language has the following grammar:
 
 ```
-P,Q ::= +x;P | y<-x;P | y<<x;P | y->x;P | y->x. | PQ | (P)
+P,Q ::= A;P | A. | PQ | (P)
+A   ::= +x | y<-x | y<<x | y->x
 ```
 
 All variable names must match the regular expression `[a-zA-Z0-9_]+`. There are
@@ -64,9 +65,9 @@ semantics because I want to start from a practical perspective (and save time).
 In my simulation algorithm I try to allow future extensions for randomly
 dropping or delaying processes and messages.
 
-- `+x,y;x->y;z<-y.` Once a process sends it cannot receive what it sent later
-  on. Hence here z is not equal to x, instead the process waits for the next
-  message through y. It is guaranteed that z is always the message after x.
+- `+x,y;x->y;z<-y.` A process can receive what it sent: a message is delivered
+  to every process that listens on the channel at the moment of delivery, the
+  sender included. Hence here z is equal to x.
 - `+x,y;(x->y.z<-y.)` Parallel processes in the same block are started
   simultaneously and can communicate with each other from the start. Thus here
   z is equal to x. A stricter rule is that receiving processes (subscribers) are
